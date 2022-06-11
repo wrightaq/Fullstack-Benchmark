@@ -8,7 +8,7 @@ const Feed = (props) => {
       {/* section for post form */}
 
       {/* section for all posts */}
-      <Post postInfo={props.postInfo} />
+      <Post postInfo={props.postInfo} showingMore={props.showingMore} showMore={props.showMore} />
     </div>
   );
 }

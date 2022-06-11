@@ -2,14 +2,25 @@ import React from "react";
 
 
 const Post = (props) => {
+
   if (props.postInfo.length > 0) {
-    var posts = props.postInfo.map((post) =>
-      <p>{post.body}</p>
+
+    var posts = props.postInfo.map((post) => {
+      if (post.body.length > 144) {
+        var some = post.body.slice(0, 145);
+        return <div>
+          {props.showMore ? <p>{post.body}</p> : <p>{some + '...'}</p>}
+          <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
+        </div>;
+      } else {
+        return <p>{post.body} </p>;
+      }
+    }
+
     );
   } else {
     var posts = 'Loading...';
   }
-
   return (
     <div className='post'>
       <div className='post__byline'>
