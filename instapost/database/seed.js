@@ -44,14 +44,14 @@ Ni sechejso gafzobuk ogeni kunov din wevde pedik daun bejawhu jo dovtapsus ha. B
   },
 ];
 
-const insertSamplePosts = function () {
-  Post.deleteMany({}).then(() => {
-    console.log("All posts have been removed.");
-    Post.create(samplePosts).then(() => {
-      console.log("Posts have been added.");
-      db.close();
-    });
-  });
-};
+// const insertSamplePosts = function () {
+//   Post.deleteMany({}).then(() => {
+//     console.log("All posts have been removed.");
+//     Post.create(samplePosts).then(() => {
+//       console.log("Posts have been added.");
+//       db.close();
+//     });
+//   });
+// };
 
-insertSamplePosts();
+// insertSamplePosts();
