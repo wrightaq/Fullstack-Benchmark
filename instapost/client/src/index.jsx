@@ -14,6 +14,7 @@ class App extends React.Component {
 
     };
     this.showingMore = this.showingMore.bind(this);
+    // this.addLikes = this.addLikes.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,9 @@ class App extends React.Component {
       showMore: !this.state.showMore
     });
   }
+  // addLikes(postId) {
+  //   axios.patch(`/api/posts/${postId}`);
+  // }
   render() {
     return (
       <div>
@@ -44,7 +48,7 @@ class App extends React.Component {
         </div>
 
         <div className="main">
-          <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore}/>
+          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} /*addLikes={this.addLikes}*//>}
         </div>
       </div>
     );

@@ -1,27 +1,33 @@
-import React from "react";
+import React from 'react';
+import moment from 'moment';
 
 
 const Post = (props) => {
+  // if (props.postInfo.length > 0) {
 
-  if (props.postInfo.length > 0) {
+  //   var posts = props.postInfo.map((post) => {
+  //     if (post.body.length > 144) {
+  //       var some = post.body.slice(0, 145);
+  //       return <div>
+  //         {props.showMore ? <p>{post.body}</p> : <p>{some + '...'}</p>}
+  //         <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
+  //       </div>;
+  //     } else {
+  //       return <p>{post.body} </p>;
+  //     }
+  //   }
 
-    var posts = props.postInfo.map((post) => {
-      if (post.body.length > 144) {
-        var some = post.body.slice(0, 145);
-        return <div>
-          {props.showMore ? <p>{post.body}</p> : <p>{some + '...'}</p>}
-          <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
-        </div>;
-      } else {
-        return <p>{post.body} </p>;
-      }
-    }
-
-    );
-  } else {
-    var posts = 'Loading...';
+  //   );
+  // } else {
+  //   var posts = 'Loading...';
+  // var time = moment(props.postData.createdAt).format(LTS)}
+  if (props.postData.body.length > 144) {
+    var some = props.postData.body.slice(0, 145);
   }
+
+  // }
   return (
+
     <div className='post'>
       <div className='post__byline'>
         <div className='center'>
@@ -30,18 +36,19 @@ const Post = (props) => {
             src='https://www.w3schools.com/w3images/avatar6.png'
             alt='user avatar'
           />
-          <span className='post__byline__user'>Awesome User</span>
+          <span className='post__byline__user'>{props.postData.username}</span>
         </div>
-        14 hours ago
+        {moment(props.postData.createdAt).fromNow()}
       </div>
       <div className='post__image'>
-        <img src='https://loremflickr.com/320/320' />
+        <img src={props.postData.imageUrl} />
       </div>
-      {posts}
+      {props.showMore ? <p>{props.postData.body}</p> : <p>{some + '...'}</p>}
+      <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
       <div className='post__actions'>
-        <div className='post__likes'>Likes: 32</div>
+        <div className='post__likes'>Likes: {props.postData.likes}</div>
         <div className='post__buttons'>
-          <button>Like</button>
+          <button /*onClick={props.addLikes(props.postInfo._id)}*/>Like</button>
           <button>Comment</button>
         </div>
       </div>

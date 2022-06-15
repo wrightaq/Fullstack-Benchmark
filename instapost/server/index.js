@@ -18,6 +18,10 @@ app.get('/api/posts', (req, res) => {
     .catch((error) => res.sendStatus(501));
 });
 
+// app.patch(`/api/post/${postId}`, (req, res) => {
+//   Post.findOneAndUpdate({_id: postId}, {likes: {default: this.default++}});
+// });ß
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

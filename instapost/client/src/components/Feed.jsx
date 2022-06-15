@@ -3,12 +3,16 @@ import React from "react";
 import Post from "./Post.jsx";
 
 const Feed = (props) => {
+  const posts = props.postInfo.map((post) =>
+    <Post postData={post} showingMore={props.showingMore} showMore={props.showMore} addLikes={props.addLikes}/>
+  );
   return (
     <div className='feed'>
       {/* section for post form */}
 
       {/* section for all posts */}
-      <Post postInfo={props.postInfo} showingMore={props.showingMore} showMore={props.showMore} />
+
+      {posts}
     </div>
   );
 }
