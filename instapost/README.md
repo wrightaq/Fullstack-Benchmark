@@ -117,7 +117,7 @@ HOW TO START THIS APP
 - [x ] In your Express server, create a request handler that will respond to a `POST` request to the route `/api/posts/`. Your request handler should take the data sent in the body of the request, and use that data to create and save a new post to your database.
 - [x ] Build a new `Create` component, which will display a form with several inputs: one input each for the _username, and imageUrl_ of the post, a `textarea` for the _body_ of the post, and a `button` that will submit the post.
   - To aid you in crafting the structure, styling, and layout of the HTML elements in this component, we've provided an HTML "skeleton" for this component. You can find it at `mockups/Create.html`.
-- [ ] In the `Feed` component for your client, refactor so the `Create` component is displayed above all the posts.
+- [x ] In the `Feed` component for your client, refactor so the `Create` component is displayed above all the posts.
 - [ ] In the `Create` Component you should handle the response from the `POST` request to tell the user it was successful.
   - Reset all inputs back to empty values.
   - Show the new post at the top of the list of posts.

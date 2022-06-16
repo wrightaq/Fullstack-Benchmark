@@ -1,5 +1,5 @@
 import React from 'react';
-import Create from './Create,jsx';
+import Create from './Create.jsx';
 import Post from './Post.jsx';
 
 const Feed = (props) => {
@@ -9,7 +9,7 @@ const Feed = (props) => {
   return (
     <div className='feed'>
       {/* section for post form */}
-      <Create/>
+      <Create load={props.load}/>
       {/* section for all posts */}
       {posts}
     </div>

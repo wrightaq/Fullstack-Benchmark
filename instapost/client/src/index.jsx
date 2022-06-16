@@ -54,7 +54,7 @@ class App extends React.Component {
           </span>
         </div>
         <div className="main">
-          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes}/>}
+          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes} load={this.load}/>}
         </div>
       </div>
     );
