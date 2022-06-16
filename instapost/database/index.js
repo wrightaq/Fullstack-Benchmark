@@ -10,8 +10,8 @@ mongoose.connect(mongoUri, {
 
 const db = mongoose.connection;
 //checks db connected
-db.once("connected", function(){
-  console.log("Mongodb connected...");
-})
+db.once('connected', function() {
+  console.log('Mongodb connected...');
+});
 
 module.exports = db;

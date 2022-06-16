@@ -62,10 +62,10 @@ HOW TO START THIS APP
 
 - [x ] In the Express server `server/index.js`, complete the request handler that will respond to `GET` requests to `/api/posts` with JSON of the posts stored in the database. You should use the Mongoose model exported by `Post.js` to fetch all of the posts from the database.
 - [x ] Make an AJAX request from your client to the `/api/posts` route of your server when the App (or Feed) component gets loaded. Replace the sample data in your client with data obtained from your server.
-- [ ] Refactor the **Feed** component to dynamically render the data from your api.
+- [x ] Refactor the **Feed** component to dynamically render the data from your api.
   - Leverage the existing **Post** component with the data you requested.
-- [ ] Use the [Moment.js](https://momentjs.com) library to display the post dates using relative time - for example, "21 hours ago" or "10 minutes ago."
-- [ ] Ensure that the posts in your feed appear in reverse-chronological order (with the most recent post appearing first in the feed.)
+- [x ] Use the [Moment.js](https://momentjs.com) library to display the post dates using relative time - for example, "21 hours ago" or "10 minutes ago."
+- [x ] Ensure that the posts in your feed appear in reverse-chronological order (with the most recent post appearing first in the feed.)
 
 **WHEN THIS STEP IS COMPLETE:** please make a commit with the message "complete step one"
 
@@ -79,10 +79,10 @@ HOW TO START THIS APP
 
 **Implement this user story by doing the following:**
 
-- [ ] Truncate the length of all posts to a _max of 144 characters_
-  - [ ] If a post is more than 144 characters provide a **Show More** button that will toggle the display of the content
-  - [ ] If a post is less than 144 characters do not add a show more button and display all content
-- [ ] Ensure that your `Post` properly displays the post as a series of paragraphs.
+- [x ] Truncate the length of all posts to a _max of 144 characters_
+  - [x ] If a post is more than 144 characters provide a **Show More** button that will toggle the display of the content
+  - [x ] If a post is less than 144 characters do not add a show more button and display all content
+- [? ] Ensure that your `Post` properly displays the post as a series of paragraphs.
 
 **WHEN THIS STEP IS COMPLETE:** please make a commit with the message "complete step two"
 
@@ -96,10 +96,10 @@ HOW TO START THIS APP
 
 **Implement these user stories by doing the following:**
 
-- [ ] In your Express server, create a request handler that will respond to a `PATCH` request to the route `/api/posts/:postId`. Your request handler should find the post in the database with the corresponding `_id`, then increment that post's `like` counter.
+- [x ] In your Express server, create a request handler that will respond to a `PATCH` request to the route `/api/posts/:postId`. Your request handler should find the post in the database with the corresponding `_id`, then increment that post's `like` counter.
   - Use Express' `route parameters` to get the `postId` out of your request URL.
-- [ ] Refactor your `Post` component to include a _click_ event listener on the like button.
-- [ ] Within the event handler you created send a `PATCH` request to the route `/api/posts/:postId`.
+- [x ] Refactor your `Post` component to include a _click_ event listener on the like button.
+- [x ] Within the event handler you created send a `PATCH` request to the route `/api/posts/:postId`.
   - on success of the request, increment the post's count for immediate feedback to the user.
 
 **WHEN THIS STEP IS COMPLETE:** please make a commit with the message "complete step three"
@@ -114,8 +114,8 @@ HOW TO START THIS APP
 
 **Implement this user story by doing the following:**
 
-- [ ] In your Express server, create a request handler that will respond to a `POST` request to the route `/api/posts/`. Your request handler should take the data sent in the body of the request, and use that data to create and save a new post to your database.
-- [ ] Build a new `Create` component, which will display a form with several inputs: one input each for the _username, and imageUrl_ of the post, a `textarea` for the _body_ of the post, and a `button` that will submit the post.
+- [x ] In your Express server, create a request handler that will respond to a `POST` request to the route `/api/posts/`. Your request handler should take the data sent in the body of the request, and use that data to create and save a new post to your database.
+- [x ] Build a new `Create` component, which will display a form with several inputs: one input each for the _username, and imageUrl_ of the post, a `textarea` for the _body_ of the post, and a `button` that will submit the post.
   - To aid you in crafting the structure, styling, and layout of the HTML elements in this component, we've provided an HTML "skeleton" for this component. You can find it at `mockups/Create.html`.
 - [ ] In the `Feed` component for your client, refactor so the `Create` component is displayed above all the posts.
 - [ ] In the `Create` Component you should handle the response from the `POST` request to tell the user it was successful.

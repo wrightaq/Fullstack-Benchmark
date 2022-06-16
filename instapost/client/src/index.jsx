@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
-
 import Feed from './components/Feed.jsx';
 
 class App extends React.Component {
@@ -14,10 +13,15 @@ class App extends React.Component {
 
     };
     this.showingMore = this.showingMore.bind(this);
-    // this.addLikes = this.addLikes.bind(this);
+    this.addLikes = this.addLikes.bind(this);
+    this.load = this.load.bind(this);
   }
 
   componentDidMount() {
+    this.load();
+  }
+
+  load() {
     axios.get('/api/posts')
       .then((body) => {
         this.setState({
@@ -35,9 +39,12 @@ class App extends React.Component {
       showMore: !this.state.showMore
     });
   }
-  // addLikes(postId) {
-  //   axios.patch(`/api/posts/${postId}`);
-  // }
+
+  addLikes(id) {
+    axios.patch(`/api/posts/${id}`); //colon only needed express side
+    this.load();
+
+  }
   render() {
     return (
       <div>
@@ -46,9 +53,8 @@ class App extends React.Component {
             Instapost
           </span>
         </div>
-
         <div className="main">
-          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} /*addLikes={this.addLikes}*//>}
+          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes}/>}
         </div>
       </div>
     );

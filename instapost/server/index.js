@@ -18,21 +18,21 @@ app.get('/api/posts', (req, res) => {
     .catch((error) => res.sendStatus(501));
 });
 
-// app.patch(`/api/post/${postId}`, (req, res) => {
-//   Post.findOneAndUpdate({_id: postId}, {likes: {default: this.default++}});
-// });ß
+app.patch('/api/posts/:postId', (req, res) => {
+  console.log(req.params);
+  Post.updateOne({_id: req.params.postId}, {$inc: {likes: 1}}) //$increment inc
+    .exec((error, data) => res.json(data));
+});
+
+
+app.post('/api/posts/', (req, res) => {
+  Post.create({username: req.body.username, imageUrl: req.body.imageUrl, body: req.body.body})
+    .exec((error, data) => res.json(data));
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
-
-// {
-//   username: String,
-//   imageUrl: String,
-//   body: String,
-//   likes: { type: Number, default: 0 },
-// },
-// {
-//   timestamps: true,
-// }
+//change to exec, change increment, change deprecated findoneandupdate
+//axios doesnt need :

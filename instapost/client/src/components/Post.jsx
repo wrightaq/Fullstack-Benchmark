@@ -3,29 +3,9 @@ import moment from 'moment';
 
 
 const Post = (props) => {
-  // if (props.postInfo.length > 0) {
-
-  //   var posts = props.postInfo.map((post) => {
-  //     if (post.body.length > 144) {
-  //       var some = post.body.slice(0, 145);
-  //       return <div>
-  //         {props.showMore ? <p>{post.body}</p> : <p>{some + '...'}</p>}
-  //         <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
-  //       </div>;
-  //     } else {
-  //       return <p>{post.body} </p>;
-  //     }
-  //   }
-
-  //   );
-  // } else {
-  //   var posts = 'Loading...';
-  // var time = moment(props.postData.createdAt).format(LTS)}
   if (props.postData.body.length > 144) {
     var some = props.postData.body.slice(0, 145);
   }
-
-  // }
   return (
 
     <div className='post'>
@@ -48,7 +28,7 @@ const Post = (props) => {
       <div className='post__actions'>
         <div className='post__likes'>Likes: {props.postData.likes}</div>
         <div className='post__buttons'>
-          <button /*onClick={props.addLikes(props.postInfo._id)}*/>Like</button>
+          <button onClick={() => props.addLikes(props.postData._id)}>Like</button>
           <button>Comment</button>
         </div>
       </div>
