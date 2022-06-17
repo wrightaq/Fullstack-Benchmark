@@ -12,6 +12,7 @@ class Create extends React.Component {
     };
     this.formInput = this.formInput.bind(this);
     this.post = this.post.bind(this);
+    this.reload = this.reload.bind(this);
   }
 
   formInput(event) {
@@ -25,16 +26,25 @@ class Create extends React.Component {
     this.setState({
       posted: !this.state.posted
     });
-    this.props.load;
+    this.reload();
+    this.props.load();
+  }
+
+  reload() {
+    this.setState({
+      username: '',
+      imageUrl: '',
+      body: ''
+    });
   }
 
   render() {
     return (
       <div>
         <h2>Add a Post!</h2>
-        <input onChange={this.formInput} name='username'placeholder='Username'></input>
-        <input onChange={this.formInput} name='imageUrl' placeholder='Image URL'></input>
-        <textarea onChange={this.formInput} name='body' placeholder='Here goes your post content'></textarea>
+        <input onChange={this.formInput} value={this.state.username}name='username'placeholder='Username'></input>
+        <input onChange={this.formInput} value={this.state.imageUrl} name='imageUrl' placeholder='Image URL'></input>
+        <textarea onChange={this.formInput} value={this.state.body} name='body' placeholder='Here goes your post content'></textarea>
         <button onClick={this.post}>Send</button>
         <div>{this.state.posted ? 'post created' : null}</div>
       </div>

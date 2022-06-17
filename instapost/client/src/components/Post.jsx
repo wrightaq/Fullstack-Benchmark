@@ -3,8 +3,13 @@ import moment from 'moment';
 
 
 const Post = (props) => {
+  var bigger = false;
   if (props.postData.body.length > 144) {
-    var some = props.postData.body.slice(0, 145);
+    var some = props.postData.body.slice(0, 145) + '...';
+    bigger = true;
+  } else {
+    var some = props.postData.body;
+    bigger = false;
   }
   return (
 
@@ -23,8 +28,8 @@ const Post = (props) => {
       <div className='post__image'>
         <img src={props.postData.imageUrl} />
       </div>
-      {props.showMore ? <p>{props.postData.body}</p> : <p>{some + '...'}</p>}
-      <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button>
+      {props.showMore ? <p>{props.postData.body}</p> : <p>{some}</p> }
+      {bigger ? <button onClick={props.showingMore}>{props.showMore ? 'Show Less' : 'Show More'}</button> : null}
       <div className='post__actions'>
         <div className='post__likes'>Likes: {props.postData.likes}</div>
         <div className='post__buttons'>

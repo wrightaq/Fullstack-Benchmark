@@ -118,7 +118,7 @@ HOW TO START THIS APP
 - [x ] Build a new `Create` component, which will display a form with several inputs: one input each for the _username, and imageUrl_ of the post, a `textarea` for the _body_ of the post, and a `button` that will submit the post.
   - To aid you in crafting the structure, styling, and layout of the HTML elements in this component, we've provided an HTML "skeleton" for this component. You can find it at `mockups/Create.html`.
 - [x ] In the `Feed` component for your client, refactor so the `Create` component is displayed above all the posts.
-- [ ] In the `Create` Component you should handle the response from the `POST` request to tell the user it was successful.
+- [x ] In the `Create` Component you should handle the response from the `POST` request to tell the user it was successful.
   - Reset all inputs back to empty values.
   - Show the new post at the top of the list of posts.
 - **NOTE** - You may use the [Place Corgi](http://placecorgi.com/) or [Unsplash Source](https://source.unsplash.com/) services to provide filler images as you implement this component. Don't waste time trying to find images.

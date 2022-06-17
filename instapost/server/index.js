@@ -26,8 +26,9 @@ app.patch('/api/posts/:postId', (req, res) => {
 
 
 app.post('/api/posts/', (req, res) => {
-  Post.save({username: req.body.username, imageUrl: req.body.imageUrl, body: req.body.body})
-    // .exec((error, data) => res.json(data));
+  var newPost = new Post(req.body);
+  newPost.save();
+  res.send(newPost);
 });
 
 app.listen(PORT, () => {

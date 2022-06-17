@@ -9,7 +9,7 @@ const Feed = (props) => {
   return (
     <div className='feed'>
       {/* section for post form */}
-      <Create load={props.load}/>
+      <Create load={props.load} bigger={props.bigger}/>
       {/* section for all posts */}
       {posts}
     </div>

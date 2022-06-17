@@ -9,7 +9,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       postInfo: [],
-      showMore: false
+      showMore: false,
+      bigger: false
 
     };
     this.showingMore = this.showingMore.bind(this);
@@ -36,7 +37,8 @@ class App extends React.Component {
 
   showingMore() {
     this.setState({
-      showMore: !this.state.showMore
+      showMore: !this.state.showMore,
+      bigger: true
     });
   }
 
@@ -54,7 +56,7 @@ class App extends React.Component {
           </span>
         </div>
         <div className="main">
-          { <Feed postInfo={this.state.postInfo} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes} load={this.load}/>}
+          { <Feed postInfo={this.state.postInfo} bigger={this.state.bigger} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes} load={this.load}/>}
         </div>
       </div>
     );
