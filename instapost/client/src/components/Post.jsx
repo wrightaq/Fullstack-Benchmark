@@ -3,16 +3,14 @@ import moment from 'moment';
 
 
 const Post = (props) => {
-  var bigger = false;
   if (props.postData.body.length > 144) {
     var some = props.postData.body.slice(0, 145) + '...';
-    bigger = true;
+    var bigger = true;
   } else {
     var some = props.postData.body;
-    bigger = false;
+    var bigger = false;
   }
   return (
-
     <div className='post'>
       <div className='post__byline'>
         <div className='center'>

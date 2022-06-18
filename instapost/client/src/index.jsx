@@ -11,15 +11,21 @@ class App extends React.Component {
       postInfo: [],
       showMore: false,
       bigger: false
-
     };
     this.showingMore = this.showingMore.bind(this);
     this.addLikes = this.addLikes.bind(this);
     this.load = this.load.bind(this);
+    this.alter = this.alter.bind(this);
   }
 
   componentDidMount() {
     this.load();
+  }
+
+  alter() {
+    this.setState({
+      bigger: !this.state.bigger
+    });
   }
 
   load() {
@@ -28,7 +34,6 @@ class App extends React.Component {
         this.setState({
           postInfo: body.data
         });
-        console.log('state', this.state.postInfo);
       })
       .catch((error) => {
         console.log('error from axios call:', error);
@@ -38,14 +43,12 @@ class App extends React.Component {
   showingMore() {
     this.setState({
       showMore: !this.state.showMore,
-      bigger: true
     });
   }
 
   addLikes(id) {
     axios.patch(`/api/posts/${id}`); //colon only needed express side
     this.load();
-
   }
   render() {
     return (
@@ -56,7 +59,7 @@ class App extends React.Component {
           </span>
         </div>
         <div className="main">
-          { <Feed postInfo={this.state.postInfo} bigger={this.state.bigger} showingMore={this.showingMore} showMore={this.state.showMore} addLikes={this.addLikes} load={this.load}/>}
+          { <Feed postInfo={this.state.postInfo} bigger={this.state.bigger} showingMore={this.showingMore} showMore={this.state.showMore} alter={this.alter}addLikes={this.addLikes} load={this.load}/>}
         </div>
       </div>
     );

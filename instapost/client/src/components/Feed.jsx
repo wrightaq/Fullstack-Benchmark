@@ -4,14 +4,14 @@ import Post from './Post.jsx';
 
 const Feed = (props) => {
   const posts = props.postInfo.map((post) =>
-    <Post postData={post} showingMore={props.showingMore} showMore={props.showMore} addLikes={props.addLikes}/>
+    <Post postData={post} showingMore={props.showingMore} showMore={props.showMore} addLikes={props.addLikes} bigger={props.bigger} alter={props.alter}/>
   );
   return (
     <div className='feed'>
       {/* section for post form */}
-      <Create load={props.load} bigger={props.bigger}/>
+      <Create load={props.load} showingMore={props.showingMore}/>
       {/* section for all posts */}
-      {posts}
+      {posts}s
     </div>
   );
 };

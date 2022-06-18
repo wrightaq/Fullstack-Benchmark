@@ -27,6 +27,7 @@ class Create extends React.Component {
       posted: !this.state.posted
     });
     this.reload();
+    this.props.showingMore();
     this.props.load();
   }
 
